@@ -1,0 +1,19 @@
+name: $(Date:yyyyMMdd)$(Rev:.r)
+
+jobs:
+  - job: build
+    displayName: Build thymeleaf-extras-features
+    steps:
+      - task: Gradle@2
+        inputs:
+          gradleWrapperFile: 'gradlew'
+          javaHomeOption: 'JDKVersion'
+          publishJUnitResults: false
+          testResultsFiles: '**/TEST-*.xml'
+          tasks: 'build'
+
+trigger:
+  - master
+
+pool:
+  vmImage: 'ubuntu-latest'
