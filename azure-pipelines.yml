@@ -8,9 +8,9 @@ jobs:
         inputs:
           gradleWrapperFile: 'gradlew'
           javaHomeOption: 'JDKVersion'
-          publishJUnitResults: false
+          publishJUnitResults: true
           testResultsFiles: '**/TEST-*.xml'
-          tasks: 'build'
+          tasks: 'build sourceJar shadowJar'
 
 trigger:
   - master
