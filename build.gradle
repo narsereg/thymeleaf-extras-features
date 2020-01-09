@@ -38,6 +38,30 @@ publishing {
     publications {
         maven(MavenPublication) {
             from components.java
+
+            pom {
+                name = 'Thymeleaf Feature Toggles Extension'
+                description = 'Extension to the thymeleaf which allows to use togglz library in the templates'
+                url = 'https://github.com/narsereg/thymeleaf-extras-features'
+                licenses {
+                    license {
+                        name = 'The Apache License, Version 2.0'
+                        url = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                    }
+                }
+                scm {
+                    connection = 'scm:git:https://github.com/narsereg/thymeleaf-extras-features.git'
+                    developerConnection = 'scm:git:https://github.com/narsereg/thymeleaf-extras-features.git'
+                    url = 'https://github.com/narsereg/thymeleaf-extras-features.git'
+                }
+                developers {
+                    developer {
+                        id = 'narsereg'
+                        name = 'Dmitrii Danileiko'
+                        email = 'narsereg@mail.ru'
+                    }
+                }
+            }
         }
     }
 }
