@@ -1,13 +1,13 @@
 plugins {
-    kotlin("jvm") version "1.5.0"
-    id("org.jetbrains.dokka") version "1.4.32"
-    id("org.jmailen.kotlinter") version "3.4.4"
-    id("com.github.johnrengelman.shadow") version "5.2.0"
+    kotlin("jvm") version "1.9.24"
+    id("org.jetbrains.dokka") version "1.9.20"
+    id("org.jmailen.kotlinter") version "4.4.0"
+    id("com.github.johnrengelman.shadow") version "8.1.1"
     `maven-publish`
 }
 
 group = "org.narsereg"
-version = "0.1.0"
+version = "0.2.0"
 
 repositories {
     mavenCentral()
@@ -15,12 +15,18 @@ repositories {
 }
 
 dependencies {
-    implementation("org.jetbrains.kotlin:kotlin-stdlib:1.5.0")
+    implementation("org.jetbrains.kotlin:kotlin-stdlib:2.0.0")
     implementation("org.thymeleaf:thymeleaf:3.+")
-    implementation("org.togglz:togglz-core:2.+")
+    implementation("org.togglz:togglz-core:4.+")
     testImplementation("io.mockk:mockk:1.+")
     testImplementation(kotlin("test-junit5"))
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.+")
+    testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
 }
 
 publishing {
@@ -59,12 +65,12 @@ tasks {
     }
 
     compileKotlin {
-        kotlinOptions.jvmTarget = "1.8"
+        kotlinOptions.jvmTarget = "17"
         kotlinOptions.javaParameters = true
     }
 
     compileTestKotlin {
-        kotlinOptions.jvmTarget = "1.8"
+        kotlinOptions.jvmTarget = "17"
     }
 
     val sourceJar by creating(Jar::class) {

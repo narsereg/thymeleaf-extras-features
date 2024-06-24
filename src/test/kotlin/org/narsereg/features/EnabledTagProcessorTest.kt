@@ -1,6 +1,5 @@
 package org.narsereg.features
 
-import DummyFeatureProvider
 import io.mockk.every
 import io.mockk.impl.annotations.RelaxedMockK
 import io.mockk.junit5.MockKExtension
